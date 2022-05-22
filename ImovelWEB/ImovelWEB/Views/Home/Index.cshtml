@@ -1,0 +1,109 @@
+﻿@model IEnumerable<ImovelWEB.Models.Imovel>
+
+@{
+    ViewData["Title"] = "Página Inicial";
+}
+
+<div class="text-center">
+    <h1 class="display-4" style="font-size:5em">Bem Vindo</h1>
+</div>
+
+<br />
+<br />
+
+<h3 class="display-4" style="font-size:2em">Imóveis</h3>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @*@Html.DisplayNameFor(model => model.Nome)*@
+                Imóvel
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.Descricao)
+            </th>*@
+            <th>
+                @*@Html.DisplayNameFor(model => model.Preco)*@
+                Preço
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.Cep)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Rua)
+            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.Numero)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Bairro)
+            </th>
+            @* <th>
+            @Html.DisplayNameFor(model => model.Complemento)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Cidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Estado)
+            </th>
+            @* <th>
+            @Html.DisplayNameFor(model => model.Referencia)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Nome)
+                </td>
+                @*<td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+            </td>*@
+                <td>
+                    @{
+                        var precoString = item.Preco.ToString("C");
+                        <Text>@precoString</Text>
+                    }
+                </td>
+                @* <td>
+            @{
+            var cepString = Convert.ToUInt64(item.Cep).ToString(@"00000\-000");
+            <Text>@cepString</Text>
+            }
+            </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rua)
+                </td>
+                @*<td>
+            @Html.DisplayFor(modelItem => item.Numero)
+            </td> *@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bairro)
+                </td>
+                @*<td>
+            @Html.DisplayFor(modelItem => item.Complemento)
+            </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cidade)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Estado)
+                </td>
+                @*<td>
+            @Html.DisplayFor(modelItem => item.Referencia)
+            </td>*@
+
+                <td>
+                    <a asp-action="Details" asp-controller="Imovel" asp-route-id="@item.Id" asp-route-urlRetorno="Home">Mais detalhes</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
