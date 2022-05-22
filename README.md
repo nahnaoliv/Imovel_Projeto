@@ -8,4 +8,3 @@ Criação de sistema de locação de imóveis. Utilizando:
 * MySql
 * API Via CEP para consulta de CEP na aplicação principal.
 
-<img src="C:\Imovel_Projeto\photo.jpg" alt="photo" style="zoom:30%;" />
